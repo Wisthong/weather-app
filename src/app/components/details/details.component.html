@@ -1,0 +1,71 @@
+@if (objectWeather) {
+
+<div class="grid grid-cols-12 text-center pt-0 pb-2 text-ctexto">
+  <div class="col-start-2 col-span-10">
+    <div class="flex justify-center items-center">
+      <img
+        class="delay-75 animate-ping "
+        src="https://openweathermap.org/img/wn/{{
+          objectWeather.weather[0].icon
+        }}@4x.png"
+        alt="icono clima"
+      />
+    </div>
+
+    <div class="card-body text-left font-ftexto">
+      <h2 class="text-4xl font-bold font-fsubtitulo py-2">
+        {{ objectWeather.name }}, {{ objectWeather.sys.country }}
+      </h2>
+      <p class="text-2xl font-semibold">
+        Descripción:
+        <span class="font-medium capitalize">{{
+          objectWeather.weather[0].description
+        }}</span>
+      </p>
+      <p class="text-2xl font-semibold">
+        Grados:
+        <span class="font-medium capitalize"
+          >{{ objectWeather.main.feels_like | number }}°C</span
+        >
+      </p>
+      <p class="text-2xl font-semibold">
+        Temperatura:
+        <span class="font-medium capitalize">{{
+          objectWeather.main.temp | number : "1.0-0"
+        }}</span>
+      </p>
+      <p class="text-2xl font-semibold">
+        Vientos:
+        <span class="font-medium capitalize"
+          >{{ objectWeather.wind.speed }}m/s</span
+        >
+      </p>
+
+      <p class="text-2xl font-semibold">
+        Humedad:
+        <span class="font-medium capitalize">{{
+          objectWeather.main.humidity
+        }}</span>
+      </p>
+      <p class="text-2xl font-semibold">
+        hPa:
+        <span class="font-medium capitalize">{{
+          objectWeather.main.pressure
+        }}</span>
+      </p>
+      <h1 class="text-2xl font-bold text-center text-ctitulo">Coordenadas</h1>
+      <p class="text-2xl font-semibold">
+        Latitud:
+        <span class="font-medium capitalize"
+          >{{ objectWeather.coord.lat }}
+        </span>
+      </p>
+      <p class="text-2xl font-semibold">
+        Longitud:<span class="font-medium capitalize">
+          {{ objectWeather.coord.lon }}
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+}
